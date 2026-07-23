@@ -90,6 +90,48 @@ export const common = {
   'pd.downloadCs': 'Télécharger le .cs',
   'pd.importError': 'JSON invalide : schéma ignoré.',
 
+  'loc.title': 'Localisation de monde',
+  'loc.subtitle':
+    "Éditez vos traductions dans une table, importez/exportez en CSV ou JSON, et générez le script UdonSharp qui applique la bonne langue aux composants Text / TextMeshPro.",
+  'loc.languages': 'Langues',
+  'loc.reference': 'Référence',
+  'loc.addLanguage': 'Ajouter',
+  'loc.langCode': 'code (ex : ja)',
+  'loc.langExists': 'Cette langue existe déjà.',
+  'loc.table': 'Table de traduction',
+  'loc.key': 'Clé',
+  'loc.addRow': 'Ajouter une clé',
+  'loc.importCsv': 'Importer CSV',
+  'loc.exportCsv': 'Exporter CSV',
+  'loc.importError': 'Fichier illisible : {detail}',
+  'loc.issues': 'Détections',
+  'loc.issues.none': 'Rien à signaler : la table est propre.',
+  'loc.issue.empty-key': 'Ligne {row} : clé vide.',
+  'loc.issue.duplicate-key': 'Clé en double : « {key} ».',
+  'loc.issue.orphan':
+    'Clé orpheline : « {key} » n’a pas de texte dans la langue de référence — les autres traductions ne seront jamais servies en repli.',
+  'loc.issue.missing': '« {key} » : traduction manquante en {langs}.',
+  'loc.issue.overflow':
+    '« {key} » ({lang}) : {len} caractères contre {refLen} en référence — risque de débordement d’UI.',
+  'loc.outputs': 'Sorties',
+  'loc.downloadJson': 'Télécharger le JSON runtime',
+  'loc.copyScript': 'Copier le script',
+  'loc.downloadScript': 'Télécharger le .cs',
+  'loc.note': "Note d'intégration",
+  'loc.downloadNote': 'Télécharger la note (.md)',
+  'loc.note.md': `## Intégration dans votre monde
+
+1. Importez \`WorldLocalization.cs\` dans votre projet Unity (SDK Worlds + UdonSharp).
+2. Placez le composant **WorldLocalization** sur un GameObject de la scène (un seul suffit).
+3. Dans l'Inspector, renseignez les liaisons :
+   - \`uiTexts\` : les composants **Text** (UI Unity) à localiser, et \`uiTextKeys\` la clé de chaque entrée, dans le même ordre ;
+   - \`tmpTexts\` / \`tmpTextKeys\` : pareil pour les composants **TextMeshProUGUI**.
+4. Au chargement, la langue du joueur est détectée via \`VRCPlayerApi.GetCurrentLanguage()\` ; si elle n'est pas dans la table, la langue de référence est utilisée.
+5. Pour un sélecteur de langue en jeu, faites appeler \`SetLanguage("fr")\` par vos boutons. Pour du texte construit dynamiquement, appelez \`Localize("votre.cle")\` depuis vos autres scripts Udon.
+6. Alternative sans re-upload : servez le **JSON runtime** depuis votre site via VRCStringDownloader et parsez-le avec VRCJson — utile pour corriger des textes après publication (le script généré utilise les chaînes embarquées ; cette variante demande une adaptation).
+
+Régénérez le fichier \`.cs\` après chaque modification de la table plutôt que d'éditer les tableaux de chaînes à la main.`,
+
   'qt.title': 'Triage de portage Quest',
   'qt.subtitle':
     'Un diagnostic guidé, une question à la fois : partez du symptôme observé sur Quest et arrivez à une fiche correctif. Chaque fiche a une URL partageable.',

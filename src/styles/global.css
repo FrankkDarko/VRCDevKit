@@ -322,6 +322,39 @@ a.scenario-btn {
   color: var(--accent);
 }
 
+/* localization */
+
+.loc-langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.loc-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  padding: 4px 8px;
+  background: var(--bg-inset);
+}
+.loc-wrap {
+  overflow-x: auto;
+}
+.loc-grid th,
+.loc-grid td {
+  min-width: 150px;
+}
+.loc-grid th:first-child,
+.loc-grid td:first-child {
+  min-width: 180px;
+}
+.loc-grid th:last-child,
+.loc-grid td:last-child {
+  min-width: 0;
+  width: 36px;
+}
+
 /* per-tool Discord call to action */
 
 .cta-block {
