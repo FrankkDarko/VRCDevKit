@@ -132,6 +132,58 @@ export const common = {
 
 Regenerate the \`.cs\` file after each table change rather than editing the string arrays by hand.`,
 
+  'sm.title': 'UdonSharp state machine',
+  'sm.subtitle':
+    'Visually edit states and transitions, then generate UdonSharp code with the right network guards — and test the design in the sync simulator in one click.',
+  'sm.canvas': 'Canvas',
+  'sm.canvas.hint':
+    'Drag nodes to move them. Wheel: zoom. Drag the background: pan. Click a node or an arrow to edit it — everything is also keyboard-editable in the panels below.',
+  'sm.addState': 'Add state',
+  'sm.linkMode': 'Add transition',
+  'sm.linkMode.pickSource': 'Click the SOURCE state…',
+  'sm.linkMode.pickTarget': 'Click the TARGET state…',
+  'sm.deleteSelected': 'Delete selection',
+  'sm.test': 'Test in the simulator',
+  'sm.machine': 'Machine',
+  'sm.className': 'Class name',
+  'sm.variables': 'Synced variables',
+  'sm.addVariable': 'Add variable',
+  'sm.states': 'States',
+  'sm.state.name': 'Name',
+  'sm.state.authority': 'Allowed trigger',
+  'sm.authority.master': 'Master only',
+  'sm.authority.owner': 'Owner only',
+  'sm.authority.anyone': 'Everyone',
+  'sm.state.initial': 'Initial state',
+  'sm.state.assignments': 'Writes on state entry',
+  'sm.addAssignment': 'Add write',
+  'sm.assign.variable': 'Variable',
+  'sm.assign.value': 'Value (C# expression)',
+  'sm.transitions': 'Transitions',
+  'sm.transition.name': 'Name (event)',
+  'sm.transition.from': 'From',
+  'sm.transition.to': 'To',
+  'sm.transition.condition': 'C# condition (optional)',
+  'sm.selected.none': 'Click an element on the canvas, or select it in the lists.',
+  'sm.validation': 'Validation',
+  'sm.validation.ok': 'The machine is valid.',
+  'sm.issue.no-states': 'The machine contains no states.',
+  'sm.issue.no-initial': 'No initial state set (or the designated state no longer exists).',
+  'sm.issue.invalid-state-name':
+    'Invalid state name: "{name}" (C# identifier expected: letters, digits, _).',
+  'sm.issue.duplicate-state-name': 'Two states share the same name: "{name}".',
+  'sm.issue.invalid-transition-name':
+    'Invalid transition name: "{name}" (it becomes a public C# method).',
+  'sm.issue.dangling-transition': 'Transition "{name}" references a deleted state.',
+  'sm.issue.duplicate-trigger':
+    'Two transitions named "{name}" leave the same state "{state}": the trigger would be ambiguous.',
+  'sm.issue.unreachable-state':
+    'State unreachable from the initial state: "{name}" (no transition path leads to it).',
+  'sm.issue.unknown-variable': 'State "{state}" writes an unknown variable: "{variable}".',
+  'sm.issue.invalid-variable-name': 'Invalid variable name: "{name}".',
+  'sm.issue.duplicate-variable': 'Duplicate variable: "{name}".',
+  'sm.code': 'Generated UdonSharp code',
+
   'vpm.title': 'VPM package generator',
   'vpm.subtitle':
     "Describe your package and drop the asset folder: the tool validates the inputs and produces package.json, repo listing, publish workflow and install README — downloadable as one archive.",

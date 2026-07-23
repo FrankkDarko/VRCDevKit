@@ -132,6 +132,59 @@ export const common = {
 
 Régénérez le fichier \`.cs\` après chaque modification de la table plutôt que d'éditer les tableaux de chaînes à la main.`,
 
+  'sm.title': 'Machine à états UdonSharp',
+  'sm.subtitle':
+    "Éditez visuellement états et transitions, puis générez le code UdonSharp avec les gardes réseau corrects — et testez le design dans le simulateur de sync en un clic.",
+  'sm.canvas': 'Canvas',
+  'sm.canvas.hint':
+    'Glissez les nœuds pour les déplacer. Molette : zoom. Glisser le fond : panoramique. Cliquez un nœud ou une flèche pour l’éditer — tout est aussi éditable au clavier dans les panneaux ci-dessous.',
+  'sm.addState': 'Ajouter un état',
+  'sm.linkMode': 'Ajouter une transition',
+  'sm.linkMode.pickSource': 'Cliquez l’état SOURCE…',
+  'sm.linkMode.pickTarget': 'Cliquez l’état CIBLE…',
+  'sm.deleteSelected': 'Supprimer la sélection',
+  'sm.test': 'Tester dans le simulateur',
+  'sm.machine': 'Machine',
+  'sm.className': 'Nom de la classe',
+  'sm.variables': 'Variables synchronisées',
+  'sm.addVariable': 'Ajouter une variable',
+  'sm.states': 'États',
+  'sm.state.name': 'Nom',
+  'sm.state.authority': 'Déclencheur autorisé',
+  'sm.authority.master': 'Master uniquement',
+  'sm.authority.owner': 'Owner uniquement',
+  'sm.authority.anyone': 'Tout le monde',
+  'sm.state.initial': 'État initial',
+  'sm.state.assignments': "Écritures à l'entrée de l'état",
+  'sm.addAssignment': 'Ajouter une écriture',
+  'sm.assign.variable': 'Variable',
+  'sm.assign.value': 'Valeur (expression C#)',
+  'sm.transitions': 'Transitions',
+  'sm.transition.name': 'Nom (event)',
+  'sm.transition.from': 'De',
+  'sm.transition.to': 'Vers',
+  'sm.transition.condition': 'Condition C# (optionnelle)',
+  'sm.selected.none': 'Cliquez un élément du canvas, ou sélectionnez-le dans les listes.',
+  'sm.validation': 'Validation',
+  'sm.validation.ok': 'Machine valide.',
+  'sm.issue.no-states': 'La machine ne contient aucun état.',
+  'sm.issue.no-initial': "Aucun état initial défini (ou l'état désigné n'existe plus).",
+  'sm.issue.invalid-state-name':
+    'Nom d’état invalide : « {name} » (identifiant C# attendu : lettres, chiffres, _).',
+  'sm.issue.duplicate-state-name': 'Deux états portent le même nom : « {name} ».',
+  'sm.issue.invalid-transition-name':
+    'Nom de transition invalide : « {name} » (il devient une méthode publique C#).',
+  'sm.issue.dangling-transition': 'La transition « {name} » référence un état supprimé.',
+  'sm.issue.duplicate-trigger':
+    'Deux transitions nommées « {name} » partent du même état « {state} » : le déclencheur serait ambigu.',
+  'sm.issue.unreachable-state':
+    'État inaccessible depuis l’état initial : « {name} » (aucun chemin de transitions n’y mène).',
+  'sm.issue.unknown-variable':
+    'L’état « {state} » écrit une variable inconnue : « {variable} ».',
+  'sm.issue.invalid-variable-name': 'Nom de variable invalide : « {name} ».',
+  'sm.issue.duplicate-variable': 'Variable en double : « {name} ».',
+  'sm.code': 'Code UdonSharp généré',
+
   'vpm.title': 'Générateur de package VPM',
   'vpm.subtitle':
     "Décrivez votre package et déposez le dossier de l'asset : l'outil valide les entrées et produit package.json, listing de dépôt, workflow de publication et README d'installation — téléchargeables en une archive.",

@@ -9,6 +9,7 @@ import { QuestTriage } from './pages/QuestTriage';
 import { PlayerData } from './pages/PlayerData';
 import { Localization } from './pages/Localization';
 import { Vpm } from './pages/Vpm';
+import { StateMachine } from './pages/StateMachine';
 import { DISCORD_URL, GITHUB_URL } from './lib/links';
 
 export function App() {
@@ -27,6 +28,7 @@ export function App() {
         {route === 'playerdata' && <PlayerData />}
         {route === 'localization' && <Localization />}
         {route === 'vpm' && <Vpm />}
+        {route === 'statemachine' && <StateMachine />}
       </main>
       <footer className="site-footer">
         <div className="container">

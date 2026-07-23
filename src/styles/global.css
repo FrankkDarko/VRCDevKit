@@ -392,6 +392,89 @@ a.scenario-btn {
   color: var(--ink-muted);
 }
 
+/* state machine */
+
+.sm-canvas-wrap {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--bg-inset);
+  height: 460px;
+}
+.sm-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+.sm-node-name {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+}
+.sm-node-meta {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+}
+.sm-edge {
+  cursor: pointer;
+}
+.sm-edge-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  paint-order: stroke;
+  stroke: var(--bg-inset);
+  stroke-width: 4px;
+}
+.sm-lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.sm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.sm-list-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 1px solid transparent;
+  border-bottom-color: var(--line);
+  padding: 5px 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.sm-list-item:hover {
+  color: var(--accent);
+}
+.sm-list-item[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--bg-inset);
+}
+.sm-editor {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+.sm-editor .labelled {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+
 /* per-tool Discord call to action */
 
 .cta-block {
