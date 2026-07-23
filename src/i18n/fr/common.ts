@@ -48,6 +48,19 @@ export const common = {
     "Une question sur cet outil, un bug à signaler, une fonctionnalité à suggérer ? La communauté est sur Discord.",
   'cta.button': 'Rejoindre le Discord',
 
+  'qt.title': 'Triage de portage Quest',
+  'qt.subtitle':
+    'Un diagnostic guidé, une question à la fois : partez du symptôme observé sur Quest et arrivez à une fiche correctif. Chaque fiche a une URL partageable.',
+  'qt.question': 'Question',
+  'qt.sheet': 'Fiche correctif',
+  'qt.cause': 'Cause probable',
+  'qt.check': 'Vérification à faire',
+  'qt.fix': 'Correctif pas à pas',
+  'qt.doc': 'Documentation officielle',
+  'qt.back': 'Question précédente',
+  'qt.restart': 'Recommencer le diagnostic',
+  'qt.shareSheet': 'Copier le lien de cette fiche',
+
   'common.run': 'Lancer la simulation',
   'common.add': 'Ajouter',
   'common.remove': 'Supprimer',

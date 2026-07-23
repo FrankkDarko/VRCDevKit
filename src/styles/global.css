@@ -225,6 +225,67 @@ textarea {
   gap: 18px;
 }
 
+/* quest triage */
+
+.qt-question {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 700;
+  max-width: 64ch;
+  margin: 4px 0 6px;
+}
+.qt-hint {
+  color: var(--ink-muted);
+  font-size: 13px;
+  max-width: 70ch;
+  margin: 0 0 14px;
+}
+.qt-answers {
+  display: grid;
+  gap: 8px;
+  max-width: 720px;
+  margin-top: 12px;
+}
+a.scenario-btn {
+  text-decoration: none;
+  color: var(--ink);
+  display: block;
+}
+.qt-fix-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin: 18px 0 8px;
+}
+.qt-steps {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: qt-step;
+  max-width: 78ch;
+}
+.qt-steps li {
+  counter-increment: qt-step;
+  padding: 8px 0 8px 40px;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+.qt-steps li::before {
+  content: counter(qt-step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+.qt-doc {
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-top: 14px;
+}
+
 /* per-tool Discord call to action */
 
 .cta-block {

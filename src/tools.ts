@@ -32,7 +32,7 @@ export const TOOLS: ToolDef[] = [
   { id: 'docgen', num: '04', category: 'distribution', enabled: true },
   { id: 'vpm', num: '05', category: 'distribution', enabled: false },
   { id: 'localization', num: '06', category: 'content', enabled: false },
-  { id: 'quest-triage', num: '07', category: 'diagnostic', enabled: false },
+  { id: 'quest-triage', num: '07', category: 'diagnostic', enabled: true },
 ];
 
 export const toolTitleKey = (id: ToolId) => `tool.${id}.title` as MessageKey;

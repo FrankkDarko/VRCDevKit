@@ -48,6 +48,19 @@ export const common = {
     'A question about this tool, a bug to report, a feature to suggest? The community is on Discord.',
   'cta.button': 'Join the Discord',
 
+  'qt.title': 'Quest porting triage',
+  'qt.subtitle':
+    'A guided diagnosis, one question at a time: start from the symptom you see on Quest and land on a fix sheet. Every sheet has a shareable URL.',
+  'qt.question': 'Question',
+  'qt.sheet': 'Fix sheet',
+  'qt.cause': 'Probable cause',
+  'qt.check': 'Check to run',
+  'qt.fix': 'Step-by-step fix',
+  'qt.doc': 'Official documentation',
+  'qt.back': 'Previous question',
+  'qt.restart': 'Restart the diagnosis',
+  'qt.shareSheet': 'Copy the link to this sheet',
+
   'common.run': 'Run simulation',
   'common.add': 'Add',
   'common.remove': 'Remove',
