@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { decodeState, encodeState } from '../engine/serialize';
+import { decodeState, encodeState } from '../lib/serialize';
 import { defaultConfig } from '../engine/defaults';
 import { buildScenario } from '../engine/scenarios';
 

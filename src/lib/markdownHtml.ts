@@ -41,6 +41,17 @@ export function markdownToHtml(md: string): string {
       i++;
       continue;
     }
+    if (t.startsWith('```')) {
+      const code: string[] = [];
+      i++;
+      while (i < lines.length && !lines[i].trim().startsWith('```')) {
+        code.push(lines[i]);
+        i++;
+      }
+      i++; // closing fence
+      out.push(`<pre><code>${escapeHtml(code.join('\n'))}</code></pre>`);
+      continue;
+    }
     const heading = t.match(/^(#{1,6})\s+(.*)$/);
     if (heading) {
       const level = heading[1].length;
@@ -101,7 +112,7 @@ export function markdownToHtml(md: string): string {
     while (
       i < lines.length &&
       lines[i].trim() !== '' &&
-      !/^(#|\||-|\*|\d+\.|---)/.test(lines[i].trim())
+      !/^(#|\||-|\*|\d+\.|---|```)/.test(lines[i].trim())
     ) {
       para.push(lines[i].trim());
       i++;

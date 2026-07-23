@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { isEnabledTool, type ToolId } from './tools';
 
-export type Route = 'home' | 'simulator' | 'docgen';
+export type Route = 'home' | ToolId;
 
 export interface RouteState {
   route: Route;
@@ -12,7 +13,7 @@ export function parseHash(hash: string): RouteState {
   const raw = hash.replace(/^#\/?/, '');
   const [path, query = ''] = raw.split('?');
   const params = new URLSearchParams(query);
-  const route: Route = path === 'simulator' ? 'simulator' : path === 'docgen' ? 'docgen' : 'home';
+  const route: Route = isEnabledTool(path) ? path : 'home';
   return { route, params };
 }
 

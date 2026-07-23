@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { Home } from './pages/Home';
 import { Simulator } from './pages/Simulator';
 import { DocGen } from './pages/DocGen';
+import { DISCORD_URL, GITHUB_URL } from './lib/links';
 
 export function App() {
   const { t } = useI18n();
@@ -22,9 +23,14 @@ export function App() {
       <footer className="site-footer">
         <div className="container">
           <span>{t('footer.note')}</span>
-          <a href="https://github.com/FrankkDarko/VRCDevKit" target="_blank" rel="noreferrer">
-            {t('footer.source')}
-          </a>
+          <span className="footer-links">
+            <a href={DISCORD_URL} target="_blank" rel="noreferrer">
+              {t('footer.discord')}
+            </a>
+            <a href={GITHUB_URL} target="_blank" rel="noreferrer">
+              {t('footer.source')}
+            </a>
+          </span>
         </div>
       </footer>
     </div>

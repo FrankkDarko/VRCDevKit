@@ -7,6 +7,9 @@ import { markdownToHtml } from '../lib/markdownHtml';
 import { DOC_LANGS, type DocLang } from '../i18n/docgen';
 import type { ParseFileResult } from '../parser/types';
 import { EXAMPLE_FILE_NAME, EXAMPLE_SOURCE } from '../lib/exampleScript';
+import { DiscordCta } from '../components/DiscordCta';
+import { downloadFile } from '../lib/download';
+import { useCopied } from '../lib/useCopied';
 
 interface LoadedFile {
   fileName: string;
@@ -22,7 +25,7 @@ export function DocGen({ params }: { params: URLSearchParams }) {
   const [assetName, setAssetName] = useState('');
   const [docLang, setDocLang] = useState<DocLang>(() => (lang === 'fr' ? 'fr' : 'en'));
   const [dragover, setDragover] = useState(false);
-  const [copied, setCopied] = useState<string | null>(null);
+  const { copied, copy } = useCopied();
   const fileInput = useRef<HTMLInputElement>(null);
   const demoLoaded = useRef(false);
 
@@ -60,24 +63,7 @@ export function DocGen({ params }: { params: URLSearchParams }) {
   );
   const html = useMemo(() => markdownToHtml(markdown), [markdown]);
 
-  const feedback = (id: string) => {
-    setCopied(id);
-    setTimeout(() => setCopied(null), 1500);
-  };
-
-  const copyText = async (id: string, text: string) => {
-    await navigator.clipboard.writeText(text);
-    feedback(id);
-  };
-
-  const download = () => {
-    const blob = new Blob([markdown], { type: 'text/markdown' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'INSTALL.md';
-    a.click();
-    URL.revokeObjectURL(a.href);
-  };
+  const download = () => downloadFile('INSTALL.md', markdown, 'text/markdown');
 
   return (
     <div className="container">
@@ -252,7 +238,7 @@ export function DocGen({ params }: { params: URLSearchParams }) {
               ) : (
                 <>
                   <div className="toolbar" style={{ marginTop: 0 }}>
-                    <button type="button" className="btn small" onClick={() => void copyText('md', markdown)}>
+                    <button type="button" className="btn small" onClick={() => void copy('md', markdown)}>
                       {copied === 'md' ? t('common.copied') : t('docgen.copyMd')}
                     </button>
                     <button type="button" className="btn small" onClick={download}>
@@ -261,7 +247,7 @@ export function DocGen({ params }: { params: URLSearchParams }) {
                     <button
                       type="button"
                       className="btn small"
-                      onClick={() => void copyText('plain', markdownToPlainText(markdown))}
+                      onClick={() => void copy('plain', markdownToPlainText(markdown))}
                     >
                       {copied === 'plain' ? t('common.copied') : t('docgen.copyPlain')}
                     </button>
@@ -284,6 +270,7 @@ export function DocGen({ params }: { params: URLSearchParams }) {
           </section>
         </div>
       </div>
+      <DiscordCta />
     </div>
   );
 }

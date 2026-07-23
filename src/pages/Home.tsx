@@ -1,4 +1,5 @@
 import { useI18n } from '../i18n';
+import { CATEGORIES, TOOLS, categoryKey, toolDescKey, toolTitleKey } from '../tools';
 
 export function Home() {
   const { t } = useI18n();
@@ -8,24 +9,30 @@ export function Home() {
         <h1>{t('home.title')}</h1>
         <p>{t('home.intro')}</p>
       </section>
-      <div className="tool-cards">
-        <article className="tool-card">
-          <span className="num">01 / SIMULATOR</span>
-          <h2>{t('home.sim.title')}</h2>
-          <p>{t('home.sim.desc')}</p>
-          <a className="btn primary" href="#/simulator">
-            {t('home.open')}
-          </a>
-        </article>
-        <article className="tool-card">
-          <span className="num">02 / DOCGEN</span>
-          <h2>{t('home.docgen.title')}</h2>
-          <p>{t('home.docgen.desc')}</p>
-          <a className="btn primary" href="#/docgen">
-            {t('home.open')}
-          </a>
-        </article>
-      </div>
+      {CATEGORIES.map((cat) => (
+        <section key={cat} aria-labelledby={`cat-${cat}`}>
+          <h2 className="cat-title" id={`cat-${cat}`}>
+            {t(categoryKey(cat))}
+          </h2>
+          <div className="tool-cards">
+            {TOOLS.filter((tool) => tool.category === cat).map((tool) => (
+              <article className={`tool-card${tool.enabled ? '' : ' disabled'}`} key={tool.id}>
+                <span className="num">
+                  {tool.num} / {tool.id.toUpperCase()}
+                  {!tool.enabled && <span className="soon-tag">{t('nav.soon')}</span>}
+                </span>
+                <h3>{t(toolTitleKey(tool.id))}</h3>
+                <p>{t(toolDescKey(tool.id))}</p>
+                {tool.enabled && (
+                  <a className="btn primary" href={`#/${tool.id}`}>
+                    {t('home.open')}
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
     </div>
   );
 }

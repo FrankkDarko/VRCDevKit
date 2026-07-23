@@ -4,8 +4,11 @@ import type { MessageKey } from '../i18n/types';
 import { simulate } from '../engine/simulator';
 import { buildScenario, SCENARIO_IDS, type ScenarioId } from '../engine/scenarios';
 import { defaultConfig } from '../engine/defaults';
-import { decodeState, encodeState } from '../engine/serialize';
+import { decodeState, encodeState } from '../lib/serialize';
 import { replaceHashParams } from '../router';
+import { DiscordCta } from '../components/DiscordCta';
+import { downloadFile } from '../lib/download';
+import { useCopied } from '../lib/useCopied';
 import type {
   ActionType,
   Scenario,
@@ -61,7 +64,7 @@ export function Simulator({ params }: { params: URLSearchParams }) {
   const [scenarioId, setScenarioId] = useState<ScenarioId | 'custom'>('lateJoiner');
   const [customScenario, setCustomScenario] = useState<Scenario | null>(null);
   const [notice, setNotice] = useState<MessageKey | null>(null);
-  const [copied, setCopied] = useState<string | null>(null);
+  const { copied, copy } = useCopied();
   const loadedFromUrl = useRef(false);
   const fileInput = useRef<HTMLInputElement>(null);
 
@@ -112,21 +115,15 @@ export function Simulator({ params }: { params: URLSearchParams }) {
   const share = async () => {
     const s = await encodeState({ config, scenarioId, scenario });
     replaceHashParams('simulator', { s });
-    await navigator.clipboard.writeText(window.location.href);
-    setCopied('share');
-    setTimeout(() => setCopied(null), 1500);
+    await copy('share', window.location.href);
   };
 
-  const exportJson = () => {
-    const blob = new Blob([JSON.stringify({ config, scenarioId, scenario }, null, 2)], {
-      type: 'application/json',
-    });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'vrcdevkit-simulation.json';
-    a.click();
-    URL.revokeObjectURL(a.href);
-  };
+  const exportJson = () =>
+    downloadFile(
+      'vrcdevkit-simulation.json',
+      JSON.stringify({ config, scenarioId, scenario }, null, 2),
+      'application/json',
+    );
 
   const importJson = async (file: File) => {
     try {
@@ -522,6 +519,7 @@ export function Simulator({ params }: { params: URLSearchParams }) {
           <Results result={result} config={config} t={t} />
         </div>
       </div>
+      <DiscordCta />
     </div>
   );
 }
