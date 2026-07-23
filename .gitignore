@@ -1,0 +1,20 @@
+# Dependencies / build
+node_modules/
+dist/
+.vite/
+coverage/
+
+# Claude / AI tooling
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+.claude-flow/
+.mcp.json
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.local
+*.log

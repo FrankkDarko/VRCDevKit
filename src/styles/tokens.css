@@ -1,0 +1,59 @@
+/* Design tokens. Dark is the default identity; light is the alternate. */
+:root,
+:root[data-theme='dark'] {
+  --bg: #0c0f0d;
+  --bg-raised: #111512;
+  --bg-inset: #090b0a;
+  --ink: #e8efe9;
+  --ink-muted: #94a096;
+  --ink-faint: #5b665d;
+  --line: #242b26;
+  --line-strong: #39443b;
+  --accent: #4ef07a;
+  --accent-ink: #062b12;
+  --accent-dim: #1d4a2b;
+  --error: #ff6259;
+  --warning: #ffb454;
+  --info: #6cb2ff;
+  --diverge-bg: #3a1512;
+  --diverge-line: #7c2c24;
+  --owner-line: #4ef07a;
+  --master-line: #6cb2ff;
+  --absent: #171a18;
+  --code-bg: #111512;
+  --shadow: none;
+  --sel-bg: #2b5c3a;
+}
+
+:root[data-theme='light'] {
+  --bg: #f2f3ee;
+  --bg-raised: #fafaf6;
+  --bg-inset: #e9eae4;
+  --ink: #171b18;
+  --ink-muted: #4d564f;
+  --ink-faint: #8b948d;
+  --line: #d4d8cf;
+  --line-strong: #aeb5ab;
+  --accent: #0b7a34;
+  --accent-ink: #f2fff5;
+  --accent-dim: #bfe8cb;
+  --error: #c22a20;
+  --warning: #9a6203;
+  --info: #1259b3;
+  --diverge-bg: #fbdedb;
+  --diverge-line: #d78379;
+  --owner-line: #0b7a34;
+  --master-line: #1259b3;
+  --absent: #e4e5df;
+  --code-bg: #e9eae4;
+  --shadow: none;
+  --sel-bg: #b9e4c6;
+}
+
+:root {
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --font-body: 'Inter Variable', system-ui, 'Segoe UI', sans-serif;
+  --step: 4px;
+  --pad: 16px;
+  --maxw: 1240px;
+}
