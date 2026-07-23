@@ -48,6 +48,48 @@ export const common = {
     "Une question sur cet outil, un bug à signaler, une fonctionnalité à suggérer ? La communauté est sur Discord.",
   'cta.button': 'Rejoindre le Discord',
 
+  'pd.title': 'Générateur de schéma PlayerData',
+  'pd.subtitle':
+    "Décrivez les clés de sauvegarde de votre monde : l'outil génère la classe UdonSharp complète (accès typés, OnPlayerRestored, valeurs par défaut) et, si vous chargez une version précédente, le code de migration.",
+  'pd.schema': 'Schéma courant',
+  'pd.className': 'Nom de la classe',
+  'pd.keyPrefix': 'Préfixe des clés',
+  'pd.version': 'Version du schéma',
+  'pd.field.key': 'Clé',
+  'pd.field.type': 'Type',
+  'pd.field.default': 'Valeur par défaut',
+  'pd.addField': 'Ajouter une clé',
+  'pd.migration': 'Migration',
+  'pd.baseline.none':
+    "Aucune base de migration : le code est généré sans chemin de migration. Chargez le JSON d'une version précédente, ou prenez le schéma courant comme base avant de le modifier.",
+  'pd.baseline.active':
+    'Base : v{v}. Modifiez librement les lignes (renommage, type, suppression) — chaque ligne est suivie individuellement, un renommage n’est jamais confondu avec une suppression.',
+  'pd.baseline.load': 'Charger la version précédente (JSON)',
+  'pd.baseline.snapshot': 'Prendre le schéma courant comme base',
+  'pd.baseline.clear': 'Retirer la base',
+  'pd.steps': 'Chemin de migration',
+  'pd.steps.none': 'Aucune différence avec la base : pas de migration nécessaire.',
+  'pd.step.add': 'Ajouté : {key} ({type}) — les joueurs existants partiront de la valeur par défaut.',
+  'pd.step.remove': 'Supprimé : {key} ({type})',
+  'pd.step.rename': 'Renommé : {from} → {to} ({type})',
+  'pd.step.retype': 'Type changé : {key} ({from} → {to})',
+  'pd.step.rename-retype': 'Renommé + type changé : {from} → {to} ({fromType} → {toType})',
+  'pd.warn.lossy-conversion':
+    'Conversion avec perte pour {key} ({from} → {to}) : troncature ou échec de parsing possible ; en cas d’échec, la valeur par défaut s’applique.',
+  'pd.warn.non-migratable':
+    'Non migrable automatiquement : {key} ({from} → {to}). L’ancienne valeur est abandonnée, les joueurs repartent de la valeur par défaut.',
+  'pd.warn.removed-key-persists':
+    'PlayerData ne supprime jamais une clé : « {key} » restera orpheline dans les données des joueurs (sans effet, simplement plus lue).',
+  'pd.warn.version-not-bumped':
+    'Le schéma a changé mais la version ne monte pas (v{old} → v{new}) : la migration ne se déclenchera pas. Incrémentez la version.',
+  'pd.warn.duplicate-key': 'Clé en double : « {key} ».',
+  'pd.warn.invalid-key': 'Clé invalide : « {key} » (lettres, chiffres et _ uniquement, pas de chiffre initial).',
+  'pd.warn.no-fields': 'Le schéma ne contient aucune clé.',
+  'pd.code': 'Classe UdonSharp générée',
+  'pd.copyCode': 'Copier le code',
+  'pd.downloadCs': 'Télécharger le .cs',
+  'pd.importError': 'JSON invalide : schéma ignoré.',
+
   'qt.title': 'Triage de portage Quest',
   'qt.subtitle':
     'Un diagnostic guidé, une question à la fois : partez du symptôme observé sur Quest et arrivez à une fiche correctif. Chaque fiche a une URL partageable.',

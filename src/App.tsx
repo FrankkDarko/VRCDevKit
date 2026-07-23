@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { Simulator } from './pages/Simulator';
 import { DocGen } from './pages/DocGen';
 import { QuestTriage } from './pages/QuestTriage';
+import { PlayerData } from './pages/PlayerData';
 import { DISCORD_URL, GITHUB_URL } from './lib/links';
 
 export function App() {
@@ -21,6 +22,7 @@ export function App() {
         {route === 'simulator' && <Simulator params={params} />}
         {route === 'docgen' && <DocGen params={params} />}
         {route === 'quest-triage' && <QuestTriage params={params} />}
+        {route === 'playerdata' && <PlayerData />}
       </main>
       <footer className="site-footer">
         <div className="container">

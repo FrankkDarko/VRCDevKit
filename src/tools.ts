@@ -28,7 +28,7 @@ export const CATEGORIES: Category[] = ['network', 'distribution', 'content', 'di
 export const TOOLS: ToolDef[] = [
   { id: 'simulator', num: '01', category: 'network', enabled: true },
   { id: 'statemachine', num: '02', category: 'network', enabled: false },
-  { id: 'playerdata', num: '03', category: 'network', enabled: false },
+  { id: 'playerdata', num: '03', category: 'network', enabled: true },
   { id: 'docgen', num: '04', category: 'distribution', enabled: true },
   { id: 'vpm', num: '05', category: 'distribution', enabled: false },
   { id: 'localization', num: '06', category: 'content', enabled: false },
