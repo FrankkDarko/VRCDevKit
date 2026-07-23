@@ -355,6 +355,43 @@ a.scenario-btn {
   width: 36px;
 }
 
+/* vpm */
+
+.vpm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.vpm-form .labelled {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+.vpm-deps {
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  margin: 0;
+}
+.vpm-deps legend {
+  padding: 0 6px;
+}
+.vpm-tree {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: var(--bg-inset);
+  font-size: 11.5px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.vpm-tree li {
+  padding: 1px 0;
+  color: var(--ink-muted);
+}
+
 /* per-tool Discord call to action */
 
 .cta-block {

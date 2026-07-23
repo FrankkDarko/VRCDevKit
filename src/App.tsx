@@ -8,6 +8,7 @@ import { DocGen } from './pages/DocGen';
 import { QuestTriage } from './pages/QuestTriage';
 import { PlayerData } from './pages/PlayerData';
 import { Localization } from './pages/Localization';
+import { Vpm } from './pages/Vpm';
 import { DISCORD_URL, GITHUB_URL } from './lib/links';
 
 export function App() {
@@ -25,6 +26,7 @@ export function App() {
         {route === 'quest-triage' && <QuestTriage params={params} />}
         {route === 'playerdata' && <PlayerData />}
         {route === 'localization' && <Localization />}
+        {route === 'vpm' && <Vpm />}
       </main>
       <footer className="site-footer">
         <div className="container">

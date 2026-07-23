@@ -30,7 +30,7 @@ export const TOOLS: ToolDef[] = [
   { id: 'statemachine', num: '02', category: 'network', enabled: false },
   { id: 'playerdata', num: '03', category: 'network', enabled: true },
   { id: 'docgen', num: '04', category: 'distribution', enabled: true },
-  { id: 'vpm', num: '05', category: 'distribution', enabled: false },
+  { id: 'vpm', num: '05', category: 'distribution', enabled: true },
   { id: 'localization', num: '06', category: 'content', enabled: true },
   { id: 'quest-triage', num: '07', category: 'diagnostic', enabled: true },
 ];

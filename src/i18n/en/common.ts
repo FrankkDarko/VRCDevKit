@@ -132,6 +132,55 @@ export const common = {
 
 Regenerate the \`.cs\` file after each table change rather than editing the string arrays by hand.`,
 
+  'vpm.title': 'VPM package generator',
+  'vpm.subtitle':
+    "Describe your package and drop the asset folder: the tool validates the inputs and produces package.json, repo listing, publish workflow and install README — downloadable as one archive.",
+  'vpm.package': 'Package',
+  'vpm.displayName': 'Display name',
+  'vpm.id': 'Reverse-domain id',
+  'vpm.id.placeholder': 'com.author.package',
+  'vpm.version': 'Version',
+  'vpm.description': 'Description',
+  'vpm.authorName': 'Author',
+  'vpm.authorEmail': 'E-mail (optional)',
+  'vpm.authorUrl': 'Website (optional)',
+  'vpm.license': 'License',
+  'vpm.unity': 'Unity version',
+  'vpm.repoUrl': 'GitHub repository',
+  'vpm.repoUrl.placeholder': 'https://github.com/You/YourRepo',
+  'vpm.deps': 'Dependencies',
+  'vpm.deps.worlds': 'VRChat SDK — Worlds',
+  'vpm.deps.avatars': 'VRChat SDK — Avatars',
+  'vpm.deps.udonsharp': 'UdonSharp (bundled with Worlds SDK >= 3.4)',
+  'vpm.tree': 'Asset folder tree',
+  'vpm.tree.drop': 'Drop the asset folder here',
+  'vpm.tree.browse': 'Pick a folder…',
+  'vpm.tree.paste': 'Or type the paths, one per line (e.g. Runtime/Door.cs)',
+  'vpm.tree.addPaths': 'Add these paths',
+  'vpm.tree.count': '{n} file(s) — {size} KB',
+  'vpm.tree.skipped': '{n} file(s) skipped: too large for the browser-generated archive.',
+  'vpm.tree.clear': 'Clear',
+  'vpm.validation': 'Validation',
+  'vpm.validation.ok': 'Inputs are valid: the package is ready to generate.',
+  'vpm.issue.invalid-id':
+    'Invalid id: "{id}". Expected format: lowercase with at least three segments, e.g. com.author.package.',
+  'vpm.issue.invalid-version':
+    'Invalid version: "{version}". Semantic versioning expected: MAJOR.MINOR.PATCH (e.g. 1.2.0, 1.0.0-beta.1).',
+  'vpm.issue.missing-name': 'The package display name is empty.',
+  'vpm.issue.missing-author': 'The author name is empty.',
+  'vpm.issue.invalid-repo-url':
+    'Invalid repository URL: "{url}". Expected: https://github.com/Owner/Repo — it derives the listing URL and the release zip URLs.',
+  'vpm.issue.both-sdks':
+    'Worlds and Avatars both selected: a package rarely targets both — make sure this is intended.',
+  'vpm.issue.udonsharp-needs-worlds':
+    'UdonSharp requires the Worlds SDK: check Worlds or uncheck UdonSharp.',
+  'vpm.issue.no-sdk': 'No SDK selected: the package will have no VRChat dependency.',
+  'vpm.issue.empty-tree':
+    'No asset files: the archive will only contain the skeleton (package.json, listing, workflow, README).',
+  'vpm.outputs': 'Generated files',
+  'vpm.downloadZip': 'Download the archive (.zip)',
+  'vpm.listingUrl': 'Listing URL to add in the VCC',
+
   'qt.title': 'Quest porting triage',
   'qt.subtitle':
     'A guided diagnosis, one question at a time: start from the symptom you see on Quest and land on a fix sheet. Every sheet has a shareable URL.',

@@ -132,6 +132,55 @@ export const common = {
 
 Régénérez le fichier \`.cs\` après chaque modification de la table plutôt que d'éditer les tableaux de chaînes à la main.`,
 
+  'vpm.title': 'Générateur de package VPM',
+  'vpm.subtitle':
+    "Décrivez votre package et déposez le dossier de l'asset : l'outil valide les entrées et produit package.json, listing de dépôt, workflow de publication et README d'installation — téléchargeables en une archive.",
+  'vpm.package': 'Package',
+  'vpm.displayName': 'Nom affiché',
+  'vpm.id': 'Identifiant inversé',
+  'vpm.id.placeholder': 'com.auteur.package',
+  'vpm.version': 'Version',
+  'vpm.description': 'Description',
+  'vpm.authorName': 'Auteur',
+  'vpm.authorEmail': 'E-mail (optionnel)',
+  'vpm.authorUrl': 'Site (optionnel)',
+  'vpm.license': 'Licence',
+  'vpm.unity': 'Version Unity',
+  'vpm.repoUrl': 'Dépôt GitHub',
+  'vpm.repoUrl.placeholder': 'https://github.com/Vous/VotreRepo',
+  'vpm.deps': 'Dépendances',
+  'vpm.deps.worlds': 'VRChat SDK — Worlds',
+  'vpm.deps.avatars': 'VRChat SDK — Avatars',
+  'vpm.deps.udonsharp': 'UdonSharp (inclus dans le SDK Worlds ≥ 3.4)',
+  'vpm.tree': "Arborescence de l'asset",
+  'vpm.tree.drop': "Déposez le dossier de l'asset ici",
+  'vpm.tree.browse': 'Choisir un dossier…',
+  'vpm.tree.paste': 'Ou saisissez les chemins, un par ligne (ex : Runtime/Door.cs)',
+  'vpm.tree.addPaths': 'Ajouter ces chemins',
+  'vpm.tree.count': '{n} fichier(s) — {size} Ko',
+  'vpm.tree.skipped': '{n} fichier(s) ignoré(s) : trop volumineux pour l’archive générée dans le navigateur.',
+  'vpm.tree.clear': 'Vider',
+  'vpm.validation': 'Validation',
+  'vpm.validation.ok': 'Entrées valides : le package est prêt à générer.',
+  'vpm.issue.invalid-id':
+    'Identifiant invalide : « {id} ». Format attendu : minuscules en au moins trois segments, ex. com.auteur.package.',
+  'vpm.issue.invalid-version':
+    'Version invalide : « {version} ». Versionnage sémantique attendu : MAJEUR.MINEUR.CORRECTIF (ex. 1.2.0, 1.0.0-beta.1).',
+  'vpm.issue.missing-name': 'Le nom affiché du package est vide.',
+  'vpm.issue.missing-author': "Le nom de l'auteur est vide.",
+  'vpm.issue.invalid-repo-url':
+    'URL de dépôt invalide : « {url} ». Attendu : https://github.com/Proprietaire/Repo — elle sert à dériver l’URL du listing et celle des zips de release.',
+  'vpm.issue.both-sdks':
+    'Worlds et Avatars sélectionnés ensemble : un package cible rarement les deux — vérifiez que c’est voulu.',
+  'vpm.issue.udonsharp-needs-worlds':
+    'UdonSharp requiert le SDK Worlds : cochez Worlds ou décochez UdonSharp.',
+  'vpm.issue.no-sdk': 'Aucun SDK sélectionné : le package n’aura aucune dépendance VRChat.',
+  'vpm.issue.empty-tree':
+    "Aucun fichier d'asset : l'archive contiendra seulement le squelette (package.json, listing, workflow, README).",
+  'vpm.outputs': 'Fichiers générés',
+  'vpm.downloadZip': "Télécharger l'archive (.zip)",
+  'vpm.listingUrl': 'URL du listing à ajouter dans le VCC',
+
   'qt.title': 'Triage de portage Quest',
   'qt.subtitle':
     'Un diagnostic guidé, une question à la fois : partez du symptôme observé sur Quest et arrivez à une fiche correctif. Chaque fiche a une URL partageable.',
