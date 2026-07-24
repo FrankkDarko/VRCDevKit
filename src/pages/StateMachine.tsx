@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useI18n } from '../i18n';
 import type { MessageKey } from '../i18n/types';
 import { Panel } from '../components/ui/Panel';
@@ -23,13 +23,81 @@ const freshId = (prefix: string) => prefix + Math.random().toString(36).slice(2,
 const AUTHORITIES: SmAuthority[] = ['anyone', 'owner', 'master'];
 const VAR_TYPES: SmVarType[] = ['bool', 'int', 'float', 'string'];
 
+/** Blank machine to start a design from scratch: one initial state, nothing else. */
+function emptyMachine(): SmMachine {
+  const id = freshId('s-');
+  return {
+    className: 'MyStateMachine',
+    initialStateId: id,
+    variables: [],
+    states: [{ id, name: 'Idle', x: 320, y: 190, authority: 'anyone', assignments: [] }],
+    transitions: [],
+  };
+}
+
+/** Defensive normalization of an imported machine JSON. */
+function normalizeMachine(raw: unknown): SmMachine {
+  const r = raw as Partial<SmMachine>;
+  if (!r || !Array.isArray(r.states) || !Array.isArray(r.transitions)) {
+    throw new Error('not a state machine');
+  }
+  const states = r.states.slice(0, 64).map((s, i) => {
+    const ss = s as Partial<SmMachine['states'][number]>;
+    return {
+      id: typeof ss.id === 'string' && ss.id !== '' ? ss.id : freshId('s-'),
+      name: String(ss.name ?? `State${i}`),
+      x: Number(ss.x) || 80 + (i % 4) * 180,
+      y: Number(ss.y) || 80 + Math.floor(i / 4) * 110,
+      authority: (['master', 'owner', 'anyone'] as const).includes(ss.authority as SmAuthority)
+        ? (ss.authority as SmAuthority)
+        : 'anyone',
+      assignments: Array.isArray(ss.assignments)
+        ? ss.assignments.slice(0, 16).map((a) => ({
+            variable: String((a as { variable?: unknown }).variable ?? ''),
+            value: String((a as { value?: unknown }).value ?? ''),
+          }))
+        : [],
+    };
+  });
+  return {
+    className: String(r.className ?? 'StateMachine'),
+    initialStateId:
+      typeof r.initialStateId === 'string' && states.some((s) => s.id === r.initialStateId)
+        ? r.initialStateId
+        : states[0]?.id ?? '',
+    variables: Array.isArray(r.variables)
+      ? r.variables.slice(0, 32).map((v, i) => {
+          const vv = v as Partial<SmMachine['variables'][number]>;
+          return {
+            name: String(vv.name ?? `var${i}`),
+            type: VAR_TYPES.includes(vv.type as SmVarType) ? (vv.type as SmVarType) : 'int',
+            initial: String(vv.initial ?? '0'),
+          };
+        })
+      : [],
+    states,
+    transitions: r.transitions.slice(0, 128).map((t, i) => {
+      const tt = t as Partial<SmMachine['transitions'][number]>;
+      return {
+        id: typeof tt.id === 'string' && tt.id !== '' ? tt.id : freshId('t-'),
+        name: String(tt.name ?? `Trigger${i}`),
+        from: String(tt.from ?? ''),
+        to: String(tt.to ?? ''),
+        condition: String(tt.condition ?? ''),
+      };
+    }),
+  };
+}
+
 export function StateMachine() {
   const { t } = useI18n();
   const [machine, setMachine] = useState<SmMachine>(defaultMachine);
   const [selection, setSelection] = useState<SmSelection>(null);
   const [linkSource, setLinkSource] = useState<string | null>(null);
   const [linkMode, setLinkMode] = useState(false);
+  const [notice, setNotice] = useState<MessageKey | null>(null);
   const { copied, copy } = useCopied();
+  const importInput = useRef<HTMLInputElement>(null);
 
   const issues = useMemo(() => validateMachine(machine), [machine]);
   const code = useMemo(() => generateStateMachine(machine), [machine]);
@@ -132,12 +200,34 @@ export function StateMachine() {
 
   const stateName = (id: string) => machine.states.find((s) => s.id === id)?.name ?? '?';
 
+  const replaceMachine = (m: SmMachine) => {
+    setMachine(m);
+    setSelection(null);
+    setLinkSource(null);
+    setLinkMode(false);
+    setNotice(null);
+  };
+
+  const importMachine = async (file: File) => {
+    try {
+      replaceMachine(normalizeMachine(JSON.parse(await file.text())));
+    } catch {
+      setNotice('sm.importError');
+    }
+  };
+
   return (
     <div className="container">
       <div className="page-head">
         <h1>{t('sm.title')}</h1>
         <p>{t('sm.subtitle')}</p>
       </div>
+
+      {notice && (
+        <p role="alert" className="issue" data-severity="warning">
+          {t(notice)}
+        </p>
+      )}
 
       <Panel idx="01" title={t('sm.canvas')}>
         <p style={{ color: 'var(--ink-muted)', fontSize: 12.5, marginTop: 0 }}>{t('sm.canvas.hint')}</p>
@@ -164,6 +254,40 @@ export function StateMachine() {
           <button type="button" className="btn small ghost" disabled={!selection} onClick={deleteSelection}>
             {t('sm.deleteSelected')}
           </button>
+          <span className="toolbar-sep" aria-hidden="true" />
+          <button type="button" className="btn small" onClick={() => replaceMachine(emptyMachine())}>
+            {t('sm.new')}
+          </button>
+          <button type="button" className="btn small" onClick={() => replaceMachine(defaultMachine())}>
+            {t('sm.example')}
+          </button>
+          <button
+            type="button"
+            className="btn small"
+            onClick={() =>
+              downloadFile(
+                `${sanitizeIdent(machine.className) || 'statemachine'}.machine.json`,
+                JSON.stringify(machine, null, 2),
+                'application/json',
+              )
+            }
+          >
+            {t('common.export')}
+          </button>
+          <button type="button" className="btn small" onClick={() => importInput.current?.click()}>
+            {t('common.import')}
+          </button>
+          <input
+            ref={importInput}
+            type="file"
+            accept=".json,application/json"
+            style={{ display: 'none' }}
+            onChange={(e) => {
+              const f = e.target.files?.[0];
+              if (f) void importMachine(f);
+              e.target.value = '';
+            }}
+          />
           <button
             type="button"
             className="btn primary"

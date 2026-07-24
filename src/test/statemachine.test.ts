@@ -52,6 +52,16 @@ describe('validateMachine', () => {
 describe('generateStateMachine', () => {
   const code = generateStateMachine(defaultMachine());
 
+  it('does not crash on an empty machine (all states deleted)', () => {
+    const empty = defaultMachine();
+    empty.states = [];
+    empty.transitions = [];
+    empty.initialStateId = '';
+    expect(() => generateStateMachine(empty)).not.toThrow();
+    expect(generateStateMachine(empty)).toContain('no states yet');
+    expect(() => toSimulatorState(empty)).not.toThrow();
+  });
+
   it('produces a structurally sound class with state constants', () => {
     expect(code).toContain('public class DoorStateMachine : UdonSharpBehaviour');
     expect((code.match(/{/g) ?? []).length).toBe((code.match(/}/g) ?? []).length);

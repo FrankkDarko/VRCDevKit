@@ -26,13 +26,13 @@ export const common = {
   'tool.playerdata.title': 'PlayerData schema generator',
   'tool.playerdata.desc':
     'Describe your save schema: the tool generates the full UdonSharp class — typed getters/setters, OnPlayerRestored, defaults — and the migration code between versions.',
-  'tool.statemachine.title': 'UdonSharp state machine',
+  'tool.statemachine.title': 'Synced state machine',
   'tool.statemachine.desc':
     'Visually edit states and transitions, then generate UdonSharp code with the right network guards. Testable in one click in the sync simulator.',
-  'tool.vpm.title': 'VPM package generator',
+  'tool.vpm.title': 'Asset publishing (VCC)',
   'tool.vpm.desc':
-    'Name, identifier, version, dependencies: get a validated package.json, repo listing, publish workflow and VCC install README, downloadable as one archive.',
-  'tool.quest-triage.title': 'Quest porting triage',
+    'Distribute your asset properly: buyers add your repository to the VRChat Creator Companion and install — then update — the package in one click, like an official package. Everything needed is generated and validated.',
+  'tool.quest-triage.title': 'Quest porting diagnostics',
   'tool.quest-triage.desc':
     'A guided decision tree by symptom — black screen, missing textures, broken lightmaps… — leading to a sheet: probable cause, check to run, step-by-step fix.',
   'tool.localization.title': 'World localization',
@@ -132,9 +132,12 @@ export const common = {
 
 Regenerate the \`.cs\` file after each table change rather than editing the string arrays by hand.`,
 
-  'sm.title': 'UdonSharp state machine',
+  'sm.title': 'Synced state machine',
   'sm.subtitle':
     'Visually edit states and transitions, then generate UdonSharp code with the right network guards — and test the design in the sync simulator in one click.',
+  'sm.new': 'New empty machine',
+  'sm.example': 'Reload the example',
+  'sm.importError': 'Invalid JSON: machine ignored.',
   'sm.canvas': 'Canvas',
   'sm.canvas.hint':
     'Drag nodes to move them. Wheel: zoom. Drag the background: pan. Click a node or an arrow to edit it — everything is also keyboard-editable in the panels below.',
@@ -184,9 +187,9 @@ Regenerate the \`.cs\` file after each table change rather than editing the stri
   'sm.issue.duplicate-variable': 'Duplicate variable: "{name}".',
   'sm.code': 'Generated UdonSharp code',
 
-  'vpm.title': 'VPM package generator',
+  'vpm.title': 'Asset publishing (VCC)',
   'vpm.subtitle':
-    "Describe your package and drop the asset folder: the tool validates the inputs and produces package.json, repo listing, publish workflow and install README — downloadable as one archive.",
+    'The VRChat Creator Companion installs assets distributed in the VPM format. Describe your package, drop the asset folder, and the tool generates the whole distribution kit — package.json, repo listing, release workflow, buyer README — validated and downloadable as one archive.',
   'vpm.package': 'Package',
   'vpm.displayName': 'Display name',
   'vpm.id': 'Reverse-domain id',
@@ -233,7 +236,7 @@ Regenerate the \`.cs\` file after each table change rather than editing the stri
   'vpm.downloadZip': 'Download the archive (.zip)',
   'vpm.listingUrl': 'Listing URL to add in the VCC',
 
-  'qt.title': 'Quest porting triage',
+  'qt.title': 'Quest porting diagnostics',
   'qt.subtitle':
     'A guided diagnosis, one question at a time: start from the symptom you see on Quest and land on a fix sheet. Every sheet has a shareable URL.',
   'qt.question': 'Question',

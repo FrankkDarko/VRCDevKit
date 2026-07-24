@@ -25,7 +25,7 @@ export/import.
 
 ![Simulator: late joiner scenario with detected issues](docs/screenshots/simulator.png)
 
-### 02 — UdonSharp state machine (`#/statemachine`)
+### 02 — Synced state machine (`#/statemachine`)
 
 Visually edit states and transitions on a canvas (drag, zoom, pan) — or
 entirely from the keyboard-accessible panels. Each state declares who may
@@ -64,7 +64,7 @@ copy as plain text. Unparsable files warn without breaking anything.
 
 ![DocGen: generated installation guide with preview](docs/screenshots/docgen.png)
 
-### 05 — VPM package generator (`#/vpm`)
+### 05 — Asset publishing via VCC/VPM (`#/vpm`)
 
 Name, reverse-domain id, version, author, dependencies (Worlds / Avatars /
 UdonSharp) and your asset folder (dropped or typed): the tool validates
@@ -92,7 +92,7 @@ referenced Text / TextMeshProUGUI components, and an integration note.
 
 ## Diagnostics
 
-### 07 — Quest porting triage (`#/quest-triage`)
+### 07 — Quest porting diagnostics (`#/quest-triage`)
 
 A guided decision tree, one question at a time, starting from the symptom:
 black world, missing textures, size limit, broken lightmaps, PC/Android
@@ -154,7 +154,7 @@ détecté vient avec sévérité, cause en une phrase et correctif suggéré.
 Moteur déterministe et seedable ; l'état complet tient dans l'URL (JSON
 compressé) pour le partage, plus export/import JSON.
 
-### 02 — Machine à états UdonSharp (`#/statemachine`)
+### 02 — Machine à états synchronisée (`#/statemachine`)
 
 Éditez visuellement états et transitions sur un canvas (glisser, zoom,
 panoramique) — ou entièrement au clavier via les panneaux. Chaque état
@@ -188,7 +188,7 @@ défaut — et génère un guide d'installation en Markdown avec aperçu HTML.
 Langue du document indépendante de l'UI (**FR / EN / JP**) ; copie,
 téléchargement, texte brut. Un fichier non parsable avertit sans rien casser.
 
-### 05 — Générateur de package VPM (`#/vpm`)
+### 05 — Publication d'asset via le VCC (`#/vpm`)
 
 Nom, identifiant inversé, version, auteur, dépendances (Worlds / Avatars /
 UdonSharp) et votre dossier d'asset (déposé ou saisi) : l'outil valide tout —
@@ -201,7 +201,7 @@ dépendance.
 
 ## Contenu
 
-### 06 — Localisation de monde (`#/localization`)
+### 06 — Traduction de monde (`#/localization`)
 
 Une table de traduction éditable — une colonne clé, une colonne par langue —
 avec import/export CSV **et** JSON (virgule et point-virgule gérés).
@@ -214,7 +214,7 @@ note d'intégration.
 
 ## Diagnostic
 
-### 07 — Triage de portage Quest (`#/quest-triage`)
+### 07 — Diagnostic de portage Quest (`#/quest-triage`)
 
 Un arbre de décision guidé, une question à la fois, à partir du symptôme :
 monde noir, textures manquantes, limite de taille, lightmaps cassées,

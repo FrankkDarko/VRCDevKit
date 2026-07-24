@@ -467,6 +467,12 @@ a.scenario-btn {
   padding-top: 12px;
   margin-top: 4px;
 }
+.toolbar-sep {
+  width: 1px;
+  align-self: stretch;
+  background: var(--line-strong);
+  margin: 0 4px;
+}
 .sm-editor .labelled {
   display: flex;
   align-items: center;

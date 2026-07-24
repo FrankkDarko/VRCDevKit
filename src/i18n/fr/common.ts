@@ -26,16 +26,16 @@ export const common = {
   'tool.playerdata.title': 'Générateur de schéma PlayerData',
   'tool.playerdata.desc':
     "Décrivez votre schéma de sauvegarde : l'outil génère la classe UdonSharp complète — getters/setters typés, OnPlayerRestored, valeurs par défaut — et le code de migration entre versions.",
-  'tool.statemachine.title': 'Machine à états UdonSharp',
+  'tool.statemachine.title': 'Machine à états synchronisée',
   'tool.statemachine.desc':
     "Éditez visuellement états et transitions, puis générez le code UdonSharp avec les gardes réseau corrects. Testable en un clic dans le simulateur de sync.",
-  'tool.vpm.title': 'Générateur de package VPM',
+  'tool.vpm.title': "Publication d'asset (VCC)",
   'tool.vpm.desc':
-    "Nom, identifiant, version, dépendances : obtenez package.json, listing de dépôt, workflow de publication et README d'installation VCC, validés et téléchargeables en une archive.",
-  'tool.quest-triage.title': 'Triage de portage Quest',
+    "Distribuez votre asset proprement : vos acheteurs ajoutent votre dépôt au VRChat Creator Companion et installent — puis mettent à jour — le package en un clic, comme un package officiel. Tout le nécessaire est généré et validé.",
+  'tool.quest-triage.title': 'Diagnostic de portage Quest',
   'tool.quest-triage.desc':
     'Un arbre de décision guidé par symptôme — écran noir, textures manquantes, lightmaps cassées… — menant à une fiche : cause probable, vérification, correctif pas à pas.',
-  'tool.localization.title': 'Localisation de monde',
+  'tool.localization.title': 'Traduction de monde',
   'tool.localization.desc':
     'Table de traduction éditable avec import/export CSV et JSON, détection des clés manquantes ou trop longues, et script UdonSharp runtime prêt à brancher.',
 
@@ -90,7 +90,7 @@ export const common = {
   'pd.downloadCs': 'Télécharger le .cs',
   'pd.importError': 'JSON invalide : schéma ignoré.',
 
-  'loc.title': 'Localisation de monde',
+  'loc.title': 'Traduction de monde',
   'loc.subtitle':
     "Éditez vos traductions dans une table, importez/exportez en CSV ou JSON, et générez le script UdonSharp qui applique la bonne langue aux composants Text / TextMeshPro.",
   'loc.languages': 'Langues',
@@ -132,9 +132,12 @@ export const common = {
 
 Régénérez le fichier \`.cs\` après chaque modification de la table plutôt que d'éditer les tableaux de chaînes à la main.`,
 
-  'sm.title': 'Machine à états UdonSharp',
+  'sm.title': 'Machine à états synchronisée',
   'sm.subtitle':
     "Éditez visuellement états et transitions, puis générez le code UdonSharp avec les gardes réseau corrects — et testez le design dans le simulateur de sync en un clic.",
+  'sm.new': 'Nouvelle machine vide',
+  'sm.example': "Recharger l'exemple",
+  'sm.importError': 'JSON invalide : machine ignorée.',
   'sm.canvas': 'Canvas',
   'sm.canvas.hint':
     'Glissez les nœuds pour les déplacer. Molette : zoom. Glisser le fond : panoramique. Cliquez un nœud ou une flèche pour l’éditer — tout est aussi éditable au clavier dans les panneaux ci-dessous.',
@@ -185,9 +188,9 @@ Régénérez le fichier \`.cs\` après chaque modification de la table plutôt q
   'sm.issue.duplicate-variable': 'Variable en double : « {name} ».',
   'sm.code': 'Code UdonSharp généré',
 
-  'vpm.title': 'Générateur de package VPM',
+  'vpm.title': "Publication d'asset (VCC)",
   'vpm.subtitle':
-    "Décrivez votre package et déposez le dossier de l'asset : l'outil valide les entrées et produit package.json, listing de dépôt, workflow de publication et README d'installation — téléchargeables en une archive.",
+    "Le VRChat Creator Companion installe les assets distribués au format VPM. Décrivez votre package, déposez le dossier de l'asset, et l'outil génère tout le kit de distribution — package.json, listing de dépôt, workflow de release, README acheteur — validé et téléchargeable en une archive.",
   'vpm.package': 'Package',
   'vpm.displayName': 'Nom affiché',
   'vpm.id': 'Identifiant inversé',
@@ -234,7 +237,7 @@ Régénérez le fichier \`.cs\` après chaque modification de la table plutôt q
   'vpm.downloadZip': "Télécharger l'archive (.zip)",
   'vpm.listingUrl': 'URL du listing à ajouter dans le VCC',
 
-  'qt.title': 'Triage de portage Quest',
+  'qt.title': 'Diagnostic de portage Quest',
   'qt.subtitle':
     'Un diagnostic guidé, une question à la fois : partez du symptôme observé sur Quest et arrivez à une fiche correctif. Chaque fiche a une URL partageable.',
   'qt.question': 'Question',
